@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="pers.phone_number">
+	   <field-validator type="requiredstring">
+	     <message>您没有输入手机号</message>
+	   </field-validator>
+	  <field-validator type="stringlength">
+	     <param name="minLength">11</param>
+	     <param name="maxLength">11</param>
+	     <message>手机号不符合11位数</message>
+	  </field-validator>
+	</field>
+	<field name="pers.username">
+	   <field-validator type="requiredstring">
+	     <message>您没有输入用户名</message>
+	   </field-validator>
+	</field>
+	<field name="pers.pass">
+	<field-validator type="requiredstring">
+	     <message>您没有输入密码</message>
+	   </field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+	     <param name="minLength">6</param>
+	     <message>密码不能少于6位</message>
+	  </field-validator>
+	  	   <field-validator type="fieldexpression">
+	    <param name="expression">pers.pass.equals(repass)</param>
+	    <message>两次输入密码不一致</message>	     
+	   </field-validator>
+	</field>
+</validators>

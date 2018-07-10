@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<package name="default" extends="struts-default" >
+		<action name="checkLogin" class="rent.CheckLogin" method="checkInDB">
+			<result name="suc">/login_suc.jsp</result>
+			<result type="redirect">/login.jsp</result>
+            <result name="fail" type="redirect">/login_fail.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="checkRegister" class="rent.CheckRegister" method="save">
+		<result name="success">/register_suc.jsp</result>
+		        <result type="redirect">/register_suc.jsp</result>
+        <result name="error" type="redirect">/register_error.jsp</result>
+        <result name="input">/register.jsp</result>
+		</action>
+
+		<action name="checkLogin_admin" class="rent.CheckLogin_admin">
+			<result name="SUCCESS">/login_admin_suc.jsp</result>
+			<result type="redirect">/login_admin.jsp</result>
+            <result name="fail" type="redirect">/login_admin_fail.jsp</result>
+			<result name="input">/login_admin.jsp</result>
+		</action>
+
+		<action name="admin_address_shi_list" class="rent.Province_shi_info">
+        	<result>/admin_address_shi_list.jsp</result>
+    	</action>
+    	
+    	<action name="admin_address_qu_list" class="rent.Province_qu_info">
+        	<result>/admin_address_qu_list.jsp</result> 
+    	</action>
+    	<action name="my_browse" class="rent_house.Up_rent_house_info">
+        	<result>/my_browse.jsp</result> 
+    	</action>
+    	
+    	<action name="browse_all_house" class="rent.Browse_all_house">
+        	<result>/browse_all_house.jsp</result> 
+        	<result name="error" type="redirect">/browse_all_house_error.jsp</result>
+    	</action>
+    	
+    	
+    	
+    	<action name="my_collect" class="rent.Collect_all_house">
+        	<result>/my_collect.jsp</result> 
+    	</action>
+    	
+    	<action name="collect_info" class="rent.Collect_all_house" method="collect">
+        		<result type="redirect">/login_suc.jsp</result>
+        	<result name="suc" type="redirect">/browse_all_house_suc.jsp</result>
+        		<result type="redirect">/login.jsp</result>
+        	<result name="fail" type="redirect">/browse_all_house_fail.jsp</result>
+    	</action>
+    	<action name="del_my_collect" class="rent.Collect_all_house" method="del_collect">
+        <result>/my_collect_del_suc.jsp</result>
+        <result name="error" type="redirect">/my_collect_del_fail.jsp</result>
+     	</action> 
+    	
+    	
+	  	<action name="admin_address_update_qu" class="rent.Province_qu_info" method="edit_qu">
+        <result>/admin_address_update_qu.jsp</result>
+  		  </action>  
+  		  
+  		<action name="admin_address_update_shi" class="rent.Province_shi_info" method="edit_shi">
+        <result>/admin_address_update_shi.jsp</result>
+  		  </action>  
+  		  
+  		<action name="update_shi" class="rent.Province_shi_info" method="update_shi">
+		        <result type="redirect">/admin_address_update_shi_suc.jsp</result>
+        	<result name="error" type="redirect">/admin_address_update_shi_fail.jsp</result>
+        	</action>
+		
+		<action name="update_qu" class="rent.Province_qu_info" method="update_qu">
+		
+		        <result type="redirect">/admin_address_update_qu_suc.jsp</result>
+        <result name="error" type="redirect">/admin_address_update_qu_fail.jsp</result>
+        
+		</action>	 
+
+		<action name="province_shi_info" class="rent.Province_shi_info" method="save_shi">
+			<result>/admin_address_add_shi_suc.jsp</result>
+        	<result name="error" >/admin_address_add_shi_fail.jsp</result>
+        	<result name="input">/admin_address_add_shi.jsp</result>
+		</action>
+
+
+		<action name="province_qu_info" class="rent.Province_qu_info" method="save_qu">
+		<result >/admin_address_add_qu_suc.jsp</result>
+        <result name="error" type="redirect">/admin_address_add_qu_fail.jsp</result>
+        <result name="input">/admin_address_add_qu.jsp</result>
+		</action>
+
+
+
+		
+		<action name="up_rent_house_info" class="rent_house.Up_rent_house_info" method="rent_save">
+		<result>/rent_house_info_suc.jsp</result>
+        <result name="error" type="redirect">/rent_house_info_fail.jsp</result>
+        <result name="input">/rent_house_info.jsp</result>
+		</action>
+		
+		<action name="mark_overdue" class="rent_house.Up_rent_house_info" method="mark">
+        <result type="redirect">/mark_overdue_suc.jsp</result>
+        <result name="error" type="redirect">/mark_overdue_fail.jsp</result>
+     </action> 
+		
+		
+			
+		<action name="up_rent_needHouse_info" class="rent_house.Up_rent_needHouse_info" method="need_save">
+			<result>/rent_needHouse_info_suc.jsp</result>
+			<result name="error" type="redirect">/rent_needHouse_info_fail.jsp</result>
+			<result name="input">/rent_needHouse_info.jsp</result>
+		</action>
+		
+		<action name="add_image" class="rent_house.image">
+        <result>/rent_image.jsp</result>
+  		  </action>  
+		
+		<action name="up_image" class="rent_house.image" method="image_save">
+		    <interceptor-ref name="defaultStack">
+		    <param name="image.allowedTypes">image/*</param>
+		    </interceptor-ref>
+			<result>/rent_image_suc.jsp</result>
+			<result name="error" type="redirect">/rent_image_fail.jsp</result>
+			<result name="input">/rent_image.jsp</result>
+		</action>
+		
+		<action name="image_info" class="rent_house.image" method="look_image">
+        <result>/rent_image_look.jsp</result>
+        <result name="error" type="redirect">/rent_image_look_fail.jsp</result>
+     </action> 
+		
+		<!--<action name="up_image" class="rent_house.image">
+		    <interceptor-ref name="defaultStack">
+		    <param name="image.allowedTypes">image/*</param>
+		    </interceptor-ref>
+			<result>/rent_image_suc.jsp</result>
+			<result name="error" type="redirect">/rent_image_fail.jsp</result>
+			<result name="input">/rent_image.jsp</result>
+		</action> -->
+	</package>
+
+</struts>

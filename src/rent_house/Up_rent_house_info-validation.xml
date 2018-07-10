@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+  		"-//Apache Struts//XWork Validator 1.0.3//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name="hf.house_various">
+	   <field-validator type="requiredstring">
+	     <message>您没有选择类型</message>
+	   </field-validator>
+	</field>
+	<field name="hf.house_address_shi">
+	   <field-validator type="requiredstring">
+	     <message>您没有输入市</message>
+	   </field-validator>
+	</field>
+	<field name="hf.house_address_qu">
+	<field-validator type="requiredstring">
+	     <message>您没有输入区</message>
+	   </field-validator>
+	</field>
+	<field name="hf.house_shi">
+	<field-validator type="requiredstring">
+	     <message>您没有选择室</message>
+	   </field-validator>
+	</field>
+	<field name="hf.house_ting">
+	<field-validator type="requiredstring">
+	     <message>您没有选择厅</message>
+	   </field-validator>
+	</field>
+	<field name="hf.house_wei">
+	<field-validator type="requiredstring">
+	     <message>您没有输入卫</message>
+	   </field-validator>
+	</field>
+	
+	<field name="hf.house_area">
+	   <field-validator type="int">
+	     <message key="hf.house_area_test"/>
+	   </field-validator>
+	  <field-validator type="int">
+	     <param name="min">20</param>
+	     <message key="hf.house_area_test2"/>
+	  </field-validator>
+	</field>
+	
+	<field name="hf.house_cost">
+	   <field-validator type="int">
+	     <message key="hf.house_cost_test"/>
+	   </field-validator>
+	  <field-validator type="int">
+	     <param name="min">0</param>
+	     <message key="hf.house_cost_test2"/>
+	  </field-validator>
+	</field>
+	
+	
+	<field name="hf.house_title">
+	   <field-validator type="requiredstring">
+	     <message key="hf.house_title_test2"/>
+	   </field-validator>
+	  <field-validator type="stringlength">
+	     <param name="minLength">6</param>
+	     <param name="maxLength">50</param>
+	     <message key="hf.house_title_test"/>
+	  </field-validator>
+	</field>
+	
+	<field name="hf.ruzhu_time">
+	   <field-validator type="requiredstring">
+	     <message key="hf.ruzhu_time_test"/>
+	   </field-validator>
+	</field>
+	
+	<field name="hf.contact">
+	   <field-validator type="requiredstring">
+	     <message>您没有输入手机号</message>
+	   </field-validator>
+	  <field-validator type="stringlength">
+	     <param name="minLength">11</param>
+	     <param name="maxLength">11</param>
+	     <message key="hf.contact_test"/>
+	  </field-validator>
+	</field>
+	
+</validators>
